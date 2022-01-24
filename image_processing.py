@@ -11,7 +11,6 @@ no_rod_path = 'Images\\broken_rod2.png'
 pancake = 'Images\\pancake.png'
 blackjack = 'Images\\blackjack.png'
 
-
 def find_and_mark():
     bounds = (285, 880, 595, 100)
     pic = pyautogui.screenshot(region = bounds)
@@ -23,7 +22,7 @@ def find_and_mark():
         marked_pic.paste('red', box = new_bounds)
         marked_pic.save('Images\\test_find.png')
 
-
+# checks to see if any picture (needles) are found in the bounds
 def any_found(needles, bounds = (285, 880, 595, 100)):
     pic = pyautogui.screenshot(region = bounds)
     for needle in needles:
@@ -32,6 +31,7 @@ def any_found(needles, bounds = (285, 880, 595, 100)):
             return True
     return False
 
+# returns the positions all of the found needles in the bounds
 def all_found(needle, bounds = (285, 880, 595, 100)):
     pic = pyautogui.screenshot(region = bounds)
     found = pyautogui.locateAll(needle, pic, confidence = 0.80)
@@ -55,7 +55,6 @@ def find_first_bj():
 def scan_paragraph(image):
     test = ImageOps.expand(ImageOps.invert(image.convert("RGB")), (10, 10, 10, 10), fill = 'BLUE')
     test = test.resize((test.width*3, test.height*3))
-    #test.show()
     text = pytesseract.image_to_string(test)
     text = text.replace("\n", " ").rstrip("\x0c").strip(' ')
     return text

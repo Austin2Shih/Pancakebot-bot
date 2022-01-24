@@ -40,7 +40,7 @@ def sell_common():
 def work():
     type_in('p;work')
     
-def big_loop():
+def main():
     while True:
         work()
         sleep(0.5)
@@ -49,9 +49,11 @@ def big_loop():
         sleep(1)
         for _ in range(9):
             fish()
+
+# Runs the bot and stops on Ctrl-C            
 try:
     reset()
-    big_loop()
+    main()
  
 except KeyboardInterrupt:
     print('finished grinding')
