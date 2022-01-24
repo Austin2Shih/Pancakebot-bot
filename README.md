@@ -1,5 +1,6 @@
 # Pancakebot-bot
-Script using OpenCV to farm pancakes with Discord's Pancakebot. Features: Trivia and fishing
+Script using OpenCV to farm pancakes with Discord's Pancakebot. 
+Features: Trivia and fishing
 
 Messages from disord captured using OpenCV to determine which regions are Pancakebot messages.
 These messages are read with PyTesseract (OCR).
